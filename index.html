@@ -1,9 +1,785 @@
-<!DOCTYPE html>
+                        <h1 class="article-title">Subnetting Made Easy (I Hope)</h1>
+                    </div>
+
+                    <p>Subnetting used to terrify me. I memorized tables and barely passed. Now I'm actually understanding it.</p>
+
+                    <h2>What Is Subnetting?</h2>
+
+                    <p>Dividing one large network into smaller logical networks. Like dividing an office building into departments.</p>
+
+                    <h2>IP Address Basics</h2>
+
+                    <p>IPv4 address: <code>192.168.1.100</code></p>
+                    <p>Two parts:</p>
+                    <ul>
+                        <li><strong>Network portion:</strong> Which network</li>
+                        <li><strong>Host portion:</strong> Which device</li>
+                    </ul>
+
+                    <p>The subnet mask tells you where to split.</p>
+
+                    <h2>Common Subnet Masks</h2>
+
+                    <table>
+                        <tr>
+                            <th>CIDR</th>
+                            <th>Subnet Mask</th>
+                            <th>Usable Hosts</th>
+                        </tr>
+                        <tr>
+                            <td>/24</td>
+                            <td>255.255.255.0</td>
+                            <td>254</td>
+                        </tr>
+                        <tr>
+                            <td>/25</td>
+                            <td>255.255.255.128</td>
+                            <td>126</td>
+                        </tr>
+                        <tr>
+                            <td>/26</td>
+                            <td>255.255.255.192</td>
+                            <td>62</td>
+                        </tr>
+                        <tr>
+                            <td>/27</td>
+                            <td>255.255.255.224</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>/30</td>
+                            <td>255.255.255.252</td>
+                            <td>2</td>
+                        </tr>
+                    </table>
+
+                    <h2>The Formula</h2>
+
+                    <p><strong>2^(host bits) - 2 = usable hosts</strong></p>
+
+                    <p>Subtract 2 because:</p>
+                    <ul>
+                        <li>First address = network address</li>
+                        <li>Last address = broadcast address</li>
+                    </ul>
+
+                    <h2>Example: 192.168.1.0/24</h2>
+
+                    <ul>
+                        <li>Network: 192.168.1.0</li>
+                        <li>First usable: 192.168.1.1</li>
+                        <li>Last usable: 192.168.1.254</li>
+                        <li>Broadcast: 192.168.1.255</li>
+                        <li>Total usable: 254 hosts</li>
+                    </ul>
+
+                    <h2>Practice Daily</h2>
+
+                    <p>What's working for me:</p>
+                    <ul>
+                        <li>10 subnet problems every morning</li>
+                        <li>Test in GNS3 lab</li>
+                        <li>Intentionally misconfigure and troubleshoot</li>
+                    </ul>
+
+                    <p>It gets easier with repetition.</p>
+
+                    <div class="article-references">
+                        <h4>📚 Related</h4>
+                        <ul>
+                            <li><a href="#" onclick="showPage('article2'); return false;">Previous: OSI Model</a></li>
+                            <li><a href="#" onclick="showPage('article5'); return false;">Next: My First GNS3 Lab</a></li>
+                        </ul>
+                    </div>
+
+                    <p><em>— Ewura</em></p>
+                </div>
+            </div>
+
+            <!-- ARTICLE 4 -->
+            <div id="article4-page" class="page-content hidden">
+                <div class="article-content">
+                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back</a>
+                    
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-tag revision">Revision</span>
+                            <span>Saturday, November 8, 2025</span>
+                        </div>
+                        <h1 class="article-title">Week 1 Revision: Foundations Review</h1>
+                    </div>
+
+                    <p>Saturday revision: consolidating Week 1 learning.</p>
+
+                    <h2>What We Covered</h2>
+
+                    <ul>
+                        <li>OSI Model (all 7 layers)</li>
+                        <li>Home lab setup with GNS3</li>
+                        <li>Subnetting fundamentals</li>
+                    </ul>
+
+                    <h2>OSI Model Quick Reference</h2>
+
+                    <pre><code>7. Application  - HTTP, FTP, DNS
+6. Presentation - Encryption, formatting
+5. Session      - Connection management
+4. Transport    - TCP/UDP, ports
+3. Network      - IP addresses, routing
+2. Data Link    - MAC addresses, switches
+1. Physical     - Cables, signals</code></pre>
+
+                    <h2>Practice Exercise 1: OSI Troubleshooting</h2>
+
+                    <p><strong>Scenario:</strong> User can't access website</p>
+                    <p><strong>Check:</strong></p>
+                    <ol>
+                        <li>Layer 1: Cable plugged in? Wi-Fi connected?</li>
+                        <li>Layer 2: Switch port active?</li>
+                        <li>Layer 3: Can you ping the gateway?</li>
+                        <li>Layer 7: DNS working? Try IP directly</li>
+                    </ol>
+
+                    <h2>Subnetting Practice</h2>
+
+                    <p><strong>Question:</strong> How many usable hosts in 10.0.0.0/26?</p>
+                    <p><strong>Answer:</strong></p>
+                    <ul>
+                        <li>/26 = 6 host bits (32-26)</li>
+                        <li>2^6 = 64 total</li>
+                        <li>64 - 2 = <strong>62 usable hosts</strong></li>
+                    </ul>
+
+                    <h2>Key Commands Learned</h2>
+
+                    <pre><code># Router basics
+enable
+configure terminal
+hostname R1
+interface GigabitEthernet0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+copy run start</code></pre>
+
+                    <h2>What's Clicking</h2>
+
+                    <ul>
+                        <li>OSI Model makes sense now</li>
+                        <li>Subnetting math is getting easier</li>
+                        <li>GNS3 lab is fun to use</li>
+                    </ul>
+
+                    <h2>What Needs Work</h2>
+
+                    <ul>
+                        <li>Speed on subnet calculations</li>
+                        <li>Memorizing show commands</li>
+                        <li>Binary conversion fluency</li>
+                    </ul>
+
+                    <h2>Week 2 Goals</h2>
+
+                    <ul>
+                        <li>Router configuration mastery</li>
+                        <li>VLAN setup and trunking</li>
+                        <li>Static routing practice</li>
+                    </ul>
+
+                    <div class="article-references">
+                        <h4>📚 Related</h4>
+                        <ul>
+                            <li><a href="#" onclick="showPage('article2'); return false;">Review: OSI Model</a></li>
+                            <li><a href="#" onclick="showPage('article3'); return false;">Review: Subnetting</a></li>
+                        </ul>
+                    </div>
+
+                    <p><em>— Ewura</em></p>
+                </div>
+            </div>
+
+            <!-- ARTICLE 5 -->
+            <div id="article5-page" class="page-content hidden">
+                <div class="article-content">
+                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back</a>
+                    
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-tag">Labs</span>
+                            <span>Monday, November 10, 2025</span>
+                        </div>
+                        <h1 class="article-title">My First GNS3 Lab: Basic Router Configuration</h1>
+                    </div>
+
+                    <p>Time for hands-on practice. Building and configuring a network from scratch.</p>
+
+                    <h2>Lab Topology</h2>
+
+                    <pre><code>PC1 --- R1 --- R2 --- PC2
+    .1   .1 .2  .2 .1   .1</code></pre>
+
+                    <h2>Step 1: Configure R1</h2>
+
+                    <pre><code>Router> enable
+Router# configure terminal
+Router(config)# hostname R1
+
+R1(config)# interface GigabitEthernet0/0
+R1(config-if)# ip address 192.168.1.1 255.255.255.0
+R1(config-if)# no shutdown
+
+R1(config-if)# interface GigabitEthernet0/1
+R1(config-if)# ip address 10.0.0.1 255.255.255.252
+R1(config-if)# no shutdown
+
+R1# copy run start</code></pre>
+
+                    <h2>Step 2: Configure R2</h2>
+
+                    <pre><code>Router(config)# hostname R2
+
+R2(config)# interface GigabitEthernet0/1
+R2(config-if)# ip address 10.0.0.2 255.255.255.252
+R2(config-if)# no shutdown
+
+R2(config)# interface GigabitEthernet0/0
+R2(config-if)# ip address 192.168.2.1 255.255.255.0
+R2(config-if)# no shutdown
+
+R2# wr</code></pre>
+
+                    <h2>Step 3: Add Static Routes</h2>
+
+                    <pre><code># On R1
+R1(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2
+
+# On R2
+R2(config)# ip route 192.168.1.0 255.255.255.0 10.0.0.1</code></pre>
+
+                    <h2>Step 4: Test Connectivity</h2>
+
+                    <pre><code>PC1> ping 192.168.2.10
+
+84 bytes from 192.168.2.10 icmp_seq=1 ttl=62 time=5.234 ms
+Success!</code></pre>
+
+                    <h2>Useful Show Commands</h2>
+
+                    <pre><code>show ip interface brief
+show ip route
+show running-config
+show interfaces GigabitEthernet0/0</code></pre>
+
+                    <h2>What I Learned</h2>
+
+                    <ul>
+                        <li>Configuration modes matter</li>
+                        <li>Always save configs (<code>wr</code>)</li>
+                        <li>Routing is bidirectional</li>
+                        <li>Verify at each step</li>
+                    </ul>
+
+                    <p>Hands-on practice beats theory every time.</p>
+
+                    <div class="article-references">
+                        <h4>📚 Related</h4>
+                        <ul>
+                            <li><a href="#" onclick="showPage('article3'); return false;">Review: Subnetting</a></li>
+                            <li><a href="#" onclick="showPage('article6'); return false;">Next: VLANs</a></li>
+                        </ul>
+                    </div>
+
+                    <p><em>— Ewura</em></p>
+                </div>
+            </div>
+
+            <!-- ARTICLE 6 -->
+            <div id="article6-page" class="page-content hidden">
+                <div class="article-content">
+                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back</a>
+                    
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-tag">Networking</span>
+                            <span>Thursday, November 13, 2025</span>
+                        </div>
+                        <h1 class="article-title">Understanding VLANs and Trunking</h1>
+                    </div>
+
+                    <p>VLANs let you segment networks logically without buying more switches.</p>
+
+                    <h2>What Problem Do VLANs Solve?</h2>
+
+                    <p>Without VLANs:</p>
+                    <ul>
+                        <li>Everyone on same broadcast domain</li>
+                        <li>All traffic visible to all devices</li>
+                        <li>No logical separation</li>
+                        <li>Need separate switches per department</li>
+                    </ul>
+
+                    <p>With VLANs:</p>
+                    <ul>
+                        <li>Logical network separation</li>
+                        <li>Better security and performance</li>
+                        <li>One switch, multiple networks</li>
+                    </ul>
+
+                    <h2>VLAN Types</h2>
+
+                    <h3>Access Ports</h3>
+                    <ul>
+                        <li>Connect to end devices (PCs, phones)</li>
+                        <li>Belong to ONE VLAN</li>
+                        <li>Traffic is untagged</li>
+                    </ul>
+
+                    <h3>Trunk Ports</h3>
+                    <ul>
+                        <li>Connect switches together</li>
+                        <li>Carry MULTIPLE VLANs</li>
+                        <li>Traffic is tagged (802.1Q)</li>
+                    </ul>
+
+                    <h2>Basic VLAN Configuration</h2>
+
+                    <pre><code># Create VLANs
+SW1(config)# vlan 10
+SW1(config-vlan)# name SALES
+
+SW1(config)# vlan 20
+SW1(config-vlan)# name ENGINEERING
+
+# Assign access port
+SW1(config)# interface fa0/1
+SW1(config-if)# switchport mode access
+SW1(config-if)# switchport access vlan 10
+
+# Configure trunk
+SW1(config)# interface fa0/24
+SW1(config-if)# switchport mode trunk
+SW1(config-if)# switchport trunk allowed vlan 10,20</code></pre>
+
+                    <h2>Verification Commands</h2>
+
+                    <pre><code>show vlan brief
+show interfaces trunk
+show interfaces fa0/1 switchport</code></pre>
+
+                    <h2>Inter-VLAN Routing</h2>
+
+                    <p>VLANs can't communicate without routing. Two options:</p>
+
+                    <h3>Router on a Stick</h3>
+                    <pre><code>Router(config)# interface Gi0/0.10
+Router(config-subif)# encapsulation dot1Q 10
+Router(config-subif)# ip address 192.168.10.1 255.255.255.0</code></pre>
+
+                    <h3>Layer 3 Switch</h3>
+                    <pre><code>Switch(config)# ip routing
+Switch(config)# interface vlan 10
+Switch(config-if)# ip address 192.168.10.1 255.255.255.0</code></pre>
+
+                    <h2>Best Practices</h2>
+
+                    <ul>
+                        <li>Don't use VLAN 1 for user traffic</li>
+                        <li>Match native VLAN on both trunk ends</li>
+                        <li>Use meaningful VLAN names</li>
+                        <li>Document your VLAN scheme</li>
+                    </ul>
+
+                    <div class="article-references">
+                        <h4>📚 Related</h4>
+                        <ul>
+                            <li><a href="#" onclick="showPage('article5'); return false;">Previous: GNS3 Lab</a></li>
+                            <li><a href="#" onclick="showPage('article9'); return false;">Next: Static vs Dynamic Routing</a></li>
+                        </ul>
+                    </div>
+
+                    <p><em>— Ewura</em></p>
+                </div>
+            </div>
+
+            <!-- ARTICLE 7 -->
+            <div id="article7-page" class="page-content hidden">
+                <div class="article-content">
+                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back</a>
+                    
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-tag revision">Revision</span>
+                            <span>Saturday, November 15, 2025</span>
+                        </div>
+                        <h1 class="article-title">Week 2 Revision: Routing & Switching</h1>
+                    </div>
+
+                    <p>Consolidating Week 2: routers, VLANs, and hands-on skills.</p>
+
+                    <h2>What We Covered</h2>
+
+                    <ul>
+                        <li>Router configuration from scratch</li>
+                        <li>Static routing</li>
+                        <li>VLANs and trunking</li>
+                        <li>Inter-VLAN routing</li>
+                    </ul>
+
+                    <h2>Command Cheat Sheet</h2>
+
+                    <pre><code># Router basics
+enable
+configure terminal
+hostname R1
+interface Gi0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+ip route 192.168.2.0 255.255.255.0 10.0.0.2
+copy run start
+
+# VLAN configuration
+vlan 10
+name SALES
+interface fa0/1
+switchport mode access
+switchport access vlan 10
+interface fa0/24
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+
+# Verification
+show ip interface brief
+show ip route
+show vlan brief
+show interfaces trunk</code></pre>
+
+                    <h2>Practice Scenario</h2>
+
+                    <p><strong>Task:</strong> Set up 2 VLANs on 2 switches with trunk link</p>
+
+                    <p><strong>Solution:</strong></p>
+                    <ol>
+                        <li>Create VLANs on both switches</li>
+                        <li>Assign ports to VLANs</li>
+                        <li>Configure trunk between switches</li>
+                        <li>Verify with <code>show vlan brief</code></li>
+                    </ol>
+
+                    <h2>Common Mistakes</h2>
+
+                    <ul>
+                        <li>Forgetting <code>no shutdown</code></li>
+                        <li>Not saving configs</li>
+                        <li>Trunk not allowing all VLANs</li>
+                        <li>Native VLAN mismatch</li>
+                    </ul>
+
+                    <h2>Skills Progress</h2>
+
+                    <table>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Week 1</th>
+                            <th>Week 2</th>
+                        </tr>
+                        <tr>
+                            <td>Router Config</td>
+                            <td>2/10</td>
+                            <td>7/10</td>
+                        </tr>
+                        <tr>
+                            <td>VLANs</td>
+                            <td>1/10</td>
+                            <td>6/10</td>
+                        </tr>
+                        <tr>
+                            <td>Troubleshooting</td>
+                            <td>2/10</td>
+                            <td>6/10</td>
+                        </tr>
+                    </table>
+
+                    <h2>Week 3 Goals</h2>
+
+                    <ul>
+                        <li>Dynamic routing protocols</li>
+                        <li>Access Control Lists (ACLs)</li>
+                        <li>Advanced troubleshooting</li>
+                    </ul>
+
+                    <div class="article-references">
+                        <h4>📚 Related</h4>
+                        <ul>
+                            <li><a href="#" onclick="showPage('article5'); return false;">Review: GNS3 Lab</a></li>
+                            <li><a href="#" onclick="showPage('article6'); return false;">Review: VLANs</a></li>
+                        </ul>
+                    </div>
+
+                    <p><em>— Ewura</em></p>
+                </div>
+            </div>
+
+            <!-- ARTICLE 8 -->
+            <div id="article8-page" class="page-content hidden">
+                <div class="article-content">
+                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back</a>
+                    
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-tag">Learning Journey</span>
+                            <span>Monday, November 17, 2025</span>
+                        </div>
+                        <h1 class="article-title">Three Weeks In: What I've Relearned</h1>
+                    </div>
+
+                    <p>Three weeks of rebuilding tech knowledge. Time for honest reflection.</p>
+
+                    <h2>What's Working</h2>
+
+                    <h3>1. Writing Clarifies Thinking</h3>
+                    <p>Explaining concepts forces true understanding. Can't fake it in writing.</p>
+
+                    <h3>2. Lab-First Approach</h3>
+                    <p>Quick theory → immediate practice → write about it. This sticks.</p>
+
+                    <h3>3. Daily Consistency</h3>
+                    <p>Morning: 10 subnet problems. Evening: GNS3 lab. Weekends: writing.</p>
+
+                    <h3>4. Embracing "I Don't Know"</h3>
+                    <p>No pretense = less stress = better learning.</p>
+
+                    <h2>What's Challenging</h2>
+
+                    <h3>1. How Much I Forgot</h3>
+                    <p>Had to Google basic commands I once knew cold.</p>
+
+                    <h3>2. Imposter Syndrome</h3>
+                    <p>Some days: "Who am I to write about this?"<br>
+                    Then: "That's the point. I'm learning publicly."</p>
+
+                    <h3>3. Wanting to Skip Ahead</h3>
+                    <p>Want to jump to OSPF and BGP. But fundamentals matter.</p>
+
+                    <h2>Unexpected Wins</h2>
+
+                    <ul>
+                        <li>Subnetting is actually satisfying now</li>
+                        <li>GNS3 is genuinely fun</li>
+                        <li>Community responses are encouraging</li>
+                    </ul>
+
+                    <h2>Skills Progress</h2>
+
+                    <table>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Start</th>
+                            <th>Now</th>
+                            <th>Goal</th>
+                        </tr>
+                        <tr>
+                            <td>OSI Model</td>
+                            <td>3/10</td>
+                            <td>8/10</td>
+                            <td>9/10</td>
+                        </tr>
+                        <tr>
+                            <td>Subnetting</td>
+                            <td>2/10</td>
+                            <td>7/10</td>
+                            <td>9/10</td>
+                        </tr>
+                        <tr>
+                            <td>Router Config</td>
+                            <td>2/10</td>
+                            <td>7/10</td>
+                            <td>8/10</td>
+                        </tr>
+                        <tr>
+                            <td>VLANs</td>
+                            <td>1/10</td>
+                            <td>6/10</td>
+                            <td>8/10</td>
+                        </tr>
+                    </table>
+
+                    <h2>Learning About Learning</h2>
+
+                    <h3>Repetition Is Everything</h3>
+                    <p>Read → Watch → Do → Write → Teach → Revisit</p>
+
+                    <h3>Make It Messy</h3>
+                    <p>Intentionally break things. Troubleshoot. That's where learning happens.</p>
+
+                    <h3>Small Wins Add Up</h3>
+                    <p>Every command remembered is progress. Celebrate it.</p>
+
+                    <h2>What's Next</h2>
+
+                    <p>Week 4 plan:</p>
+                    <ul>
+                        <li>Dynamic routing (OSPF basics)</li>
+                        <li>Access Control Lists</li>
+                        <li>NAT/PAT configuration</li>
+                    </ul>
+
+                    <h2>For Anyone Following Along</h2>
+
+                    <ol>
+                        <li>Start now (no perfect time exists)</li>
+                        <li>Be consistent (daily beats weekly)</li>
+                        <li>Build things (reading won't make you an engineer)</li>
+                        <li>Embrace mistakes (they teach most)</li>
+                        <li>Document everything (future you will thank you)</li>
+                    </ol>
+
+                    <p>The journey continues.</p>
+
+                    <div class="article-references">
+                        <h4>📚 Related</h4>
+                        <ul>
+                            <li><a href="#" onclick="showPage('article1'); return false;">Week 1: Why I Started</a></li>
+                            <li><a href="#" onclick="showPage('article9'); return false;">Next: Static vs Dynamic Routing</a></li>
+                        </ul>
+                    </div>
+
+                    <p><em>— Ewura</em></p>
+                </div>
+            </div>
+
+            <!-- ARTICLE 9 -->
+            <div id="article9-page" class="page-content hidden">
+                <div class="article-content">
+                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back</a>
+                    
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-tag">Networking</span>
+                            <span>Thursday, November 20, 2025</span>
+                        </div>
+                        <h1 class="article-title">Static vs Dynamic Routing: When to Use Each</h1>
+                    </div>
+
+                    <p>Understanding when to manually configure routes versus letting protocols handle it.</p>
+
+                    <h2>Static Routing</h2>
+
+                    <p><strong>What it is:</strong> Manually configured routes that don't change</p>
+
+                    <pre><code>Router(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2</code></pre>
+
+                    <p><strong>Pros:</strong></p>
+                    <ul>
+                        <li>Simple and predictable</li>
+                        <li>No routing protocol overhead</li>
+                        <li>Complete control</li>
+                        <li>Secure (no route advertisements)</li>
+                    </ul>
+
+                    <p><strong>Cons:</strong></p>
+                    <ul>
+                        <li>Doesn't adapt to failures</li>
+                        <li>Manual updates required</li>
+                        <li>Doesn't scale well</li>
+                    </ul>
+
+                    <p><strong>Best for:</strong> Small networks, stub networks, default routes</p>
+
+                    <h2>Dynamic Routing</h2>
+
+                    <p><strong>What it is:</strong> Routers automatically share and learn routes</p>
+
+                    <h3>Common Protocols:</h3>
+
+                    <h4>RIP (Routing Information Protocol)</h4>
+                    <ul>
+                        <li>Simple, distance-vector</li>
+                        <li>Max 15 hops</li>
+                        <li>Slow convergence</li>
+                        <li>Good for: Learning only</li>
+                    </ul>
+
+                    <h4>OSPF (Open Shortest Path First)</h4>
+                    <ul>
+                        <li>Link-state protocol</li>
+                        <li>Fast convergence</li>
+                        <li>Scalable</li>
+                        <li>Industry standard</li>
+                        <li>Good for: Most enterprise networks</li>
+                    </ul>
+
+                    <h4>EIGRP (Enhanced Interior Gateway Routing Protocol)</h4>
+                    <ul>
+                        <li>Cisco proprietary (mostly)</li>
+                        <li>Fast convergence</li>
+                        <li>Easy to configure</li>
+                        <li>Good for: Cisco-only networks</li>
+                    </ul>
+
+                    <h2>Comparison</h2>
+
+                    <table>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Static</th>
+                            <th>Dynamic</th>
+                        </tr>
+                        <tr>
+                            <td>Configuration</td>
+                            <td>Manual</td>
+                            <td>Automatic</td>
+                        </tr>
+                        <tr>
+                            <td>Adapts to changes</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Bandwidth usage</td>
+                            <td>None</td>
+                            <td>Some (updates)</td>
+                        </tr>
+                        <tr>
+                            <td>CPU/Memory</td>
+                            <td>Low</td>
+                            <td>Higher</td>
+                        </tr>
+                        <tr>
+                            <td>Scalability</td>
+                            <td>Poor</td>
+                            <td>Good</td>
+                        </tr>
+                        <tr>
+                            <td>Fault tolerance</td>
+                            <td>Poor</td>
+                            <td>Excellent</td>
+                        </tr>
+                    </table>
+
+                    <h2>Real-World Scenarios</h2>
+
+                    <h3>Use Static Routing When:</h3>
+                    <ul>
+                        <li>Network has < 5 routers</li>
+                        <li>Topology rarely changes</li>
+                        <li>Connecting to ISP (default route)</li>
+                        <li>Security is critical</li>
+                    </ul>
+
+                    <h3>Use Dynamic Routing When:</h3>
+                    <ul>
+                        <li>Network has > 5 routers</li>
+                        <li>Redundant paths exist</li>
+                        <li>Topology changes frequently</li>
+                        <li>Automatic failover needed</li>
+                    </ul>
+
+                    <h2><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ewura's TechReboot Blog</title>
+    <meta name="description" content="Following Ewura's journey of relearning networking, CCNA, and system engineering from scratch.">
     <style>
         * {
             margin: 0;
@@ -276,6 +1052,7 @@
             border-radius: 3px;
             font-family: 'Courier New', monospace;
             color: #e91e63;
+            font-size: 0.9em;
         }
 
         .article-content pre {
@@ -413,6 +1190,19 @@
 
         th {
             background: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .edit-note {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .edit-note strong {
+            color: #1976d2;
         }
     </style>
 </head>
@@ -472,102 +1262,113 @@
                 <div class="articles">
                     <h2>Latest Articles</h2>
                     
-                    <!-- Week 4 - Monday Nov 17 -->
+                    <!-- Article 10 - Sat Nov 22 -->
+                    <div class="article-card" data-category="revision">
+                        <div class="article-meta">
+                            <span class="article-tag revision">Revision</span>
+                            <span>Saturday, November 22, 2025</span>
+                        </div>
+                        <h3><a href="#" onclick="showPage('article10'); return false;">Week 3 Revision: Advanced Topics Consolidated</a></h3>
+                        <p class="article-excerpt">Reviewing Week 3 content with practice exercises and troubleshooting scenarios. Key commands, common issues, and what I've truly mastered so far...</p>
+                        <a href="#" onclick="showPage('article10'); return false;" class="read-more">Read more →</a>
+                    </div>
+
+                    <!-- Article 9 - Thu Nov 20 -->
+                    <div class="article-card" data-category="networking">
+                        <div class="article-meta">
+                            <span class="article-tag">Networking</span>
+                            <span>Thursday, November 20, 2025</span>
+                        </div>
+                        <h3><a href="#" onclick="showPage('article9'); return false;">Static vs Dynamic Routing: When to Use Each</a></h3>
+                        <p class="article-excerpt">Understanding when manual route configuration makes sense versus letting protocols handle it. Comparing static routes, RIP, OSPF, and EIGRP...</p>
+                        <a href="#" onclick="showPage('article9'); return false;" class="read-more">Read more →</a>
+                    </div>
+
+                    <!-- Article 8 - Mon Nov 17 -->
                     <div class="article-card" data-category="journey">
                         <div class="article-meta">
                             <span class="article-tag">Learning Journey</span>
                             <span>Monday, November 17, 2025</span>
                         </div>
-                        <h3>Three Weeks In: What I've Relearned</h3>
-                        <p class="article-excerpt">A honest reflection on my first three weeks of rebuilding my tech knowledge. What's clicking, what's still confusing, and the biggest lessons so far...</p>
-                        <span class="read-more">(Article coming soon)</span>
+                        <h3><a href="#" onclick="showPage('article8'); return false;">Three Weeks In: What I've Relearned</a></h3>
+                        <p class="article-excerpt">Honest reflection on three weeks of rebuilding tech knowledge. Progress made, struggles faced, and lessons learned about learning itself...</p>
+                        <a href="#" onclick="showPage('article8'); return false;" class="read-more">Read more →</a>
                     </div>
 
-                    <!-- Week 3 - Saturday Nov 15 -->
+                    <!-- Article 7 - Sat Nov 15 -->
                     <div class="article-card" data-category="revision">
                         <div class="article-meta">
                             <span class="article-tag revision">Revision</span>
                             <span>Saturday, November 15, 2025</span>
                         </div>
-                        <h3>Week 2 Revision: Routing & Switching Fundamentals</h3>
-                        <p class="article-excerpt">Consolidating everything from Week 2: router configuration, VLANs, trunking, and practical troubleshooting. Plus practice exercises and key commands to remember...</p>
-                        <span class="read-more">(Article coming soon)</span>
+                        <h3><a href="#" onclick="showPage('article7'); return false;">Week 2 Revision: Routing & Switching Fundamentals</a></h3>
+                        <p class="article-excerpt">Consolidating router configuration, VLANs, and troubleshooting skills. Practice scenarios and command references...</p>
+                        <a href="#" onclick="showPage('article7'); return false;" class="read-more">Read more →</a>
                     </div>
 
-                    <!-- Week 3 - Thursday Nov 13 -->
+                    <!-- Article 6 - Thu Nov 13 -->
                     <div class="article-card" data-category="networking">
                         <div class="article-meta">
                             <span class="article-tag">Networking</span>
                             <span>Thursday, November 13, 2025</span>
                         </div>
-                        <h3>Understanding VLANs and Trunking</h3>
-                        <p class="article-excerpt">VLANs let you segment a network logically without buying more switches. Here's how they work, why they matter, and how to configure them step-by-step...</p>
-                        <span class="read-more">(Article coming soon)</span>
+                        <h3><a href="#" onclick="showPage('article6'); return false;">Understanding VLANs and Trunking</a></h3>
+                        <p class="article-excerpt">Network segmentation without extra hardware. Complete guide to VLANs, trunking, and inter-VLAN routing...</p>
+                        <a href="#" onclick="showPage('article6'); return false;" class="read-more">Read more →</a>
                     </div>
 
-                    <!-- Week 3 - Monday Nov 10 -->
+                    <!-- Article 5 - Mon Nov 10 -->
                     <div class="article-card" data-category="labs">
                         <div class="article-meta">
                             <span class="article-tag">Labs</span>
                             <span>Monday, November 10, 2025</span>
                         </div>
-                        <h3>My First GNS3 Lab: Basic Router Configuration</h3>
-                        <p class="article-excerpt">Time to get hands-on! Setting up a basic network topology in GNS3 and configuring routers from scratch. This is where theory meets practice...</p>
-                        <span class="read-more">(Article coming soon)</span>
+                        <h3><a href="#" onclick="showPage('article5'); return false;">My First GNS3 Lab: Basic Router Configuration</a></h3>
+                        <p class="article-excerpt">Hands-on practice! Building a network topology and configuring routers from scratch in GNS3...</p>
+                        <a href="#" onclick="showPage('article5'); return false;" class="read-more">Read more →</a>
                     </div>
 
-                    <!-- Week 2 - Saturday Nov 8 -->
+                    <!-- Article 4 - Sat Nov 8 -->
                     <div class="article-card" data-category="revision">
                         <div class="article-meta">
                             <span class="article-tag revision">Revision</span>
                             <span>Saturday, November 8, 2025</span>
                         </div>
-                        <h3>Week 1 Revision: Foundations Review</h3>
-                        <p class="article-excerpt">Taking time to consolidate Week 1 learning: OSI Model deep dive, home lab recap, and practice exercises to reinforce the fundamentals...</p>
-                        <span class="read-more">(Article coming soon)</span>
+                        <h3><a href="#" onclick="showPage('article4'); return false;">Week 1 Revision: Foundations Review</a></h3>
+                        <p class="article-excerpt">Consolidating OSI Model knowledge and home lab setup with practice exercises...</p>
+                        <a href="#" onclick="showPage('article4'); return false;" class="read-more">Read more →</a>
                     </div>
 
-                    <!-- Week 2 - Thursday Nov 6 -->
+                    <!-- Article 3 - Thu Nov 6 -->
                     <div class="article-card" data-category="networking">
                         <div class="article-meta">
                             <span class="article-tag">Networking</span>
                             <span>Thursday, November 6, 2025</span>
                         </div>
-                        <h3>Subnetting Made Easy (I Hope)</h3>
-                        <p class="article-excerpt">Subnetting used to terrify me. Now I'm relearning it with a clearer approach. Breaking down IP addresses, subnet masks, and how to calculate subnets without losing your mind...</p>
-                        <span class="read-more">(Article coming soon)</span>
+                        <h3><a href="#" onclick="showPage('article3'); return false;">Subnetting Made Easy (I Hope)</a></h3>
+                        <p class="article-excerpt">Breaking down IP addresses and subnet masks without the confusion...</p>
+                        <a href="#" onclick="showPage('article3'); return false;" class="read-more">Read more →</a>
                     </div>
 
-                    <!-- Week 2 - Monday Nov 3 -->
-                    <div class="article-card" data-category="labs">
-                        <div class="article-meta">
-                            <span class="article-tag">Labs</span>
-                            <span>Monday, November 3, 2025</span>
-                        </div>
-                        <h3>Setting Up My Home Lab</h3>
-                        <p class="article-excerpt">The tools, software, and setup I'm using to practice networking and system administration. Everything you need to build your own learning environment without spending a fortune...</p>
-                        <span class="read-more">(Article coming soon)</span>
-                    </div>
-
-                    <!-- Week 1 - Thursday Oct 30 -->
+                    <!-- Article 2 - Thu Oct 30 -->
                     <div class="article-card" data-category="networking">
                         <div class="article-meta">
                             <span class="article-tag">Networking</span>
                             <span>Thursday, October 30, 2025</span>
                         </div>
                         <h3><a href="#" onclick="showPage('article2'); return false;">The OSI Model Explained Simply</a></h3>
-                        <p class="article-excerpt">Breaking down the 7 layers of the OSI model in a way that actually makes sense. No jargon overload, just clear explanations with real-world examples of how data actually moves through a network...</p>
+                        <p class="article-excerpt">Understanding all 7 layers with real-world examples and practical troubleshooting...</p>
                         <a href="#" onclick="showPage('article2'); return false;" class="read-more">Read more →</a>
                     </div>
 
-                    <!-- Week 1 - Monday Oct 27 -->
+                    <!-- Article 1 - Mon Oct 27 -->
                     <div class="article-card" data-category="journey">
                         <div class="article-meta">
                             <span class="article-tag">Learning Journey</span>
                             <span>Monday, October 27, 2025</span>
                         </div>
-                        <h3><a href="#" onclick="showPage('article1'); return false;">Why I'm Rebuilding My Tech Knowledge (And You Can Too)</a></h3>
-                        <p class="article-excerpt">After earning my CCNA and diving deep into system engineering, life took me in different directions. Now I'm coming back to tech, and I've realized something: I've forgotten more than I thought...</p>
+                        <h3><a href="#" onclick="showPage('article1'); return false;">Why I'm Rebuilding My Tech Knowledge</a></h3>
+                        <p class="article-excerpt">Starting my journey to relearn networking and system engineering. Why I'm documenting everything publicly...</p>
                         <a href="#" onclick="showPage('article1'); return false;" class="read-more">Read more →</a>
                     </div>
                 </div>
@@ -578,141 +1379,79 @@
                 <div class="about-section">
                     <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back to Home</a>
                     <h2>About Ewura's TechReboot</h2>
-                    <p>Hi! I'm Ewura, and this blog is my journey back into the world of technology.</p>
+                    <p>Hi! I'm Ewura, and this blog documents my journey back into technology.</p>
                     
-                    <p>I studied system engineering and earned my CCNA in Routing and Switching. I was passionate about networks, servers, and everything that makes technology tick. But as life often does, it pulled me in different directions, and I stepped away from hands-on technical work.</p>
-                    
-                    <p>Now, I'm coming back—and I'm starting from scratch. The truth is, I've forgotten most of what I learned. Routing protocols? Hazy. Subnetting? Need a refresher. Linux commands? Time to relearn.</p>
-                    
-                    <p>But here's the thing: I'm not embarrassed about it. Instead, I'm excited. Because this time, I'm going to document everything. Every concept I relearn, every lab I set up, every mistake I make and fix—it's all going here.</p>
+                    <p>I studied system engineering and earned my CCNA in Routing and Switching. But life took me in different directions, and I stepped away from hands-on technical work. Now I'm coming back, relearning everything from scratch.</p>
                     
                     <h2>Why This Blog?</h2>
-                    <p>This blog serves three purposes:</p>
                     <ul>
-                        <li><strong>Personal accountability:</strong> Writing forces me to truly understand what I'm learning</li>
-                        <li><strong>A reference for my future self:</strong> When I forget something again (and I will), I'll have my own notes</li>
-                        <li><strong>Help for others:</strong> If you're also relearning tech, or starting from scratch, we're in this together</li>
-                    </ul>
-                    
-                    <h2>What You'll Find Here</h2>
-                    <p>I'm focusing on several main areas:</p>
-                    <ul>
-                        <li><strong>Networking:</strong> CCNA topics, routing, switching, protocols</li>
-                        <li><strong>Hands-On Labs:</strong> Step-by-step tutorials you can follow</li>
-                        <li><strong>Learning Journey:</strong> My honest progress, including struggles and wins</li>
-                        <li><strong>Weekly Revisions:</strong> Saturday consolidation sessions</li>
+                        <li><strong>Personal accountability:</strong> Writing forces true understanding</li>
+                        <li><strong>Future reference:</strong> My own documented knowledge base</li>
+                        <li><strong>Help others:</strong> If you're also relearning, we're in this together</li>
                     </ul>
                     
                     <h2>Publishing Schedule</h2>
-                    <p>I publish consistently:</p>
                     <ul>
-                        <li><strong>Monday:</strong> Main technical articles or learning reflections</li>
-                        <li><strong>Thursday:</strong> Labs, tutorials, or deep dives</li>
+                        <li><strong>Monday:</strong> Technical articles or learning reflections</li>
+                        <li><strong>Thursday:</strong> Labs, tutorials, deep dives</li>
                         <li><strong>Saturday:</strong> Weekly revision and consolidation</li>
                     </ul>
-                    
-                    <p>I'm not an expert (yet). I'm a learner. And that's exactly what makes this blog valuable—I remember what it's like to be confused, and I'll explain things the way I wish someone had explained them to me.</p>
                     
                     <p>Let's reboot this knowledge together.</p>
                 </div>
             </div>
 
-            <!-- ARTICLE 1: Why I'm Rebuilding -->
+            <!-- ARTICLE PAGES START HERE -->
+            
+            <!-- ARTICLE 1 -->
             <div id="article1-page" class="page-content hidden">
                 <div class="article-content">
-                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back to Articles</a>
+                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back</a>
                     
                     <div class="article-header">
                         <div class="article-meta">
                             <span class="article-tag">Learning Journey</span>
                             <span>Monday, October 27, 2025</span>
                         </div>
-                        <h1 class="article-title">Why I'm Rebuilding My Tech Knowledge (And You Can Too)</h1>
+                        <h1 class="article-title">Why I'm Rebuilding My Tech Knowledge</h1>
                     </div>
 
-                    <p>Let me be honest with you from the start: I have a CCNA certification in Routing and Switching. I studied system engineering. I used to understand VLANs, routing protocols, and could configure a router in my sleep.</p>
+                    <p>I have a CCNA certification. I studied system engineering. I used to configure routers in my sleep.</p>
 
-                    <p>And now? I barely remember any of it.</p>
+                    <p>Now? I barely remember any of it.</p>
 
-                    <h2>The Reality of Technical Knowledge</h2>
+                    <h2>If You Don't Use It, You Lose It</h2>
 
-                    <p>Here's what nobody tells you when you're studying for certifications or learning technical skills: <strong>if you don't use it, you lose it</strong>. Not just a little bit—you lose most of it.</p>
+                    <p>I stepped away from technical work. Life happened. And slowly, all that hard-earned knowledge faded.</p>
 
-                    <p>I stepped away from hands-on technical work for a while. Life happened. Other opportunities came up. And slowly, quietly, all that knowledge I worked so hard to build just... faded.</p>
+                    <p>At first I was embarrassed. Then I realized: <strong>this is normal and fixable.</strong></p>
 
-                    <p>At first, I felt embarrassed about it. Here I am with certifications and qualifications, and I couldn't confidently answer basic networking questions anymore. But then I realized something important:</p>
+                    <h2>Why Document Publicly?</h2>
 
-                    <p><em>This is completely normal. And it's fixable.</em></p>
+                    <p><strong>1. Teaching forces understanding</strong> - Can't fake it when writing</p>
+                    <p><strong>2. Accountability</strong> - Regular publishing keeps me consistent</p>
+                    <p><strong>3. Future reference</strong> - My own knowledge base</p>
+                    <p><strong>4. Help others</strong> - Maybe someone else is relearning too</p>
 
-                    <h2>Why I'm Starting This Blog</h2>
+                    <h2>The Plan</h2>
 
-                    <p>I've decided to rebuild my technical knowledge from the ground up. But this time, I'm doing it differently. Instead of just studying in isolation, I'm documenting everything publicly on this blog.</p>
-
-                    <p>Here's why:</p>
-
-                    <h3>1. Teaching Forces True Understanding</h3>
-                    <p>When you have to explain something to someone else, you can't fake it. You have to truly understand it. Writing these articles will force me to go deeper than just "getting the answer right."</p>
-
-                    <h3>2. I Need Accountability</h3>
-                    <p>It's easy to say "I'll study today" and then not do it. But when you've committed to publishing regularly—Mondays and Thursdays, with Saturday revisions—you show up. Even when you don't feel like it.</p>
-
-                    <h3>3. Creating My Own Reference Library</h3>
-                    <p>Let's face it—I'll probably forget some of this stuff again in the future. But now, I'll have my own library of explanations, written in my own words, that I can come back to anytime.</p>
-
-                    <h3>4. Maybe I Can Help Others</h3>
-                    <p>If you're reading this, chances are you're either learning tech for the first time, or like me, you're coming back to it after time away. We're in this together. My struggles might help you avoid the same mistakes.</p>
-
-                    <h2>What This Journey Will Look Like</h2>
-
-                    <p>I'm not going to pretend I'm an expert. I'm going to be completely honest about:</p>
-
+                    <p>Starting with absolute fundamentals. Publishing Mon/Thu/Sat:</p>
                     <ul>
-                        <li>What I understand and what I don't</li>
-                        <li>Mistakes I make while learning</li>
-                        <li>Concepts that take me multiple attempts to grasp</li>
-                        <li>Resources that help me versus ones that don't</li>
+                        <li>OSI Model</li>
+                        <li>Home lab setup</li>
+                        <li>Subnetting</li>
+                        <li>Router/switch configuration</li>
+                        <li>VLANs and beyond</li>
                     </ul>
 
-                    <p>My goal is to publish consistently:</p>
-
-                    <ul>
-                        <li><strong>Mondays:</strong> Main technical articles or learning journey posts</li>
-                        <li><strong>Thursdays:</strong> Labs, tutorials, or deep dives</li>
-                        <li><strong>Saturdays:</strong> Weekly revision sessions to consolidate learning</li>
-                    </ul>
-
-                    <h2>The Plan Forward</h2>
-
-                    <p>I'm starting with the absolute fundamentals. No skipping ahead. No assuming I remember things I probably don't.</p>
-
-                    <p>My first few weeks will cover:</p>
-
-                    <ol>
-                        <li>The OSI Model (because everything builds on this)</li>
-                        <li>Setting up my home lab environment</li>
-                        <li>Subnetting refresher (I definitely need this)</li>
-                        <li>Basic router and switch configurations</li>
-                        <li>VLANs and trunking</li>
-                    </ol>
-
-                    <p>From there, I'll build up systematically, adding complexity as my understanding grows.</p>
-
-                    <h2>An Invitation</h2>
-
-                    <p>If you're also learning or relearning tech, I'd love for you to follow along. Maybe even start your own blog documenting your journey. There's something powerful about learning in public—it keeps you accountable and helps others at the same time.</p>
-
-                    <h2>Let's Do This</h2>
-
-                    <p>So here we go. From someone who once knew this stuff, forgot it, and is now relearning it from scratch. No pretense. No fake expertise. Just honest, documented learning.</p>
-
-                    <p>The journey of a thousand configurations begins with a single <code>router></code> prompt.</p>
+                    <p>No pretense. No fake expertise. Just honest learning.</p>
 
                     <p>Let's reboot this knowledge together.</p>
 
                     <div class="article-references">
-                        <h4>📚 Related Articles</h4>
+                        <h4>📚 Next</h4>
                         <ul>
-                            <li><a href="#" onclick="showPage('article2'); return false;">Next: The OSI Model Explained Simply</a></li>
+                            <li><a href="#" onclick="showPage('article2'); return false;">The OSI Model Explained Simply</a></li>
                         </ul>
                     </div>
 
@@ -720,10 +1459,10 @@
                 </div>
             </div>
 
-            <!-- ARTICLE 2: OSI Model -->
+            <!-- ARTICLE 2 -->
             <div id="article2-page" class="page-content hidden">
                 <div class="article-content">
-                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back to Articles</a>
+                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back</a>
                     
                     <div class="article-header">
                         <div class="article-meta">
@@ -733,54 +1472,62 @@
                         <h1 class="article-title">The OSI Model Explained Simply</h1>
                     </div>
 
-                    <p>If you're learning networking, you've definitely heard about the OSI Model. It's one of those fundamental concepts that everyone mentions but few people explain in a way that actually makes sense.</p>
+                    <p>The OSI Model: everyone mentions it, few explain it well. When I studied for CCNA, I memorized "Please Do Not Throw Sausage Pizza Away" and moved on. Now I'm actually understanding it.</p>
 
-                    <p>When I first studied for my CCNA, I memorized the layers using mnemonics like "Please Do Not Throw Sausage Pizza Away" and moved on. I could recite the layers in order, but I didn't really <em>understand</em> what they meant or why they mattered.</p>
+                    <h2>What Is It?</h2>
 
-                    <p>Now, coming back to networking, I'm taking the time to actually understand this properly. Let me break it down the way I wish someone had explained it to me.</p>
+                    <p>The OSI (Open Systems Interconnection) Model describes how data travels through networks using 7 layers. Think of it as a postal system for digital information.</p>
 
-                    <h2>What Even Is the OSI Model?</h2>
-
-                    <p>The OSI (Open Systems Interconnection) Model is basically a framework that describes how data travels through a network. Think of it as a postal system for digital information.</p>
-
-                    <p>When you send a letter, it doesn't just magically appear at its destination. It goes through multiple steps: you write it, put it in an envelope, address it, hand it to a postal worker, it gets sorted, transported, delivered to the right address, and finally opened by the recipient.</p>
-
-                    <p>The OSI Model works the same way, except instead of one postal system, it has <strong>7 distinct layers</strong>, each with a specific job.</p>
-
-                    <h2>The 7 Layers Explained</h2>
-
-                    <p>From bottom (Layer 1) to top (Layer 7):</p>
+                    <h2>The 7 Layers (Bottom to Top)</h2>
 
                     <h3>Layer 1: Physical</h3>
-                    <p>Cables, signals, bits - the physical transmission medium.</p>
+                    <p><strong>Role:</strong> Physical transmission - cables, signals, bits</p>
+                    <p><strong>Examples:</strong> Ethernet cables, Wi-Fi radio waves, fiber optics</p>
+                    <p><strong>Devices:</strong> Cables, hubs, repeaters</p>
 
                     <h3>Layer 2: Data Link</h3>
-                    <p>MAC addresses, frames, switches - local network communication.</p>
+                    <p><strong>Role:</strong> Local network addressing with MAC addresses</p>
+                    <p><strong>Examples:</strong> Ethernet, Wi-Fi (802.11)</p>
+                    <p><strong>Devices:</strong> Switches, bridges</p>
 
                     <h3>Layer 3: Network</h3>
-                    <p>IP addresses, routing - getting data between networks.</p>
+                    <p><strong>Role:</strong> Routing between networks using IP addresses</p>
+                    <p><strong>Examples:</strong> IPv4, IPv6, ICMP (ping)</p>
+                    <p><strong>Devices:</strong> Routers</p>
 
                     <h3>Layer 4: Transport</h3>
-                    <p>TCP/UDP, ports - reliable delivery and error correction.</p>
+                    <p><strong>Role:</strong> Reliable delivery and error correction</p>
+                    <p><strong>Examples:</strong> TCP (reliable), UDP (fast)</p>
+                    <p><strong>Key concept:</strong> Ports (80=HTTP, 443=HTTPS)</p>
 
                     <h3>Layer 5: Session</h3>
-                    <p>Managing connections between applications.</p>
+                    <p><strong>Role:</strong> Managing connections between applications</p>
+                    <p><strong>Example:</strong> Keeping you logged into a website</p>
 
                     <h3>Layer 6: Presentation</h3>
-                    <p>Data formatting, encryption, compression.</p>
+                    <p><strong>Role:</strong> Data formatting, encryption, compression</p>
+                    <p><strong>Example:</strong> HTTPS encryption</p>
 
                     <h3>Layer 7: Application</h3>
-                    <p>HTTP, FTP, SMTP - what users interact with.</p>
+                    <p><strong>Role:</strong> User-facing network services</p>
+                    <p><strong>Examples:</strong> HTTP, FTP, SMTP, DNS, SSH</p>
 
-                    <h2>Why This Matters</h2>
+                    <h2>Why It Matters</h2>
 
-                    <p>Understanding the OSI Model helps you troubleshoot networks systematically. When something breaks, you can work through the layers to find the problem.</p>
+                    <p>The OSI Model is a troubleshooting framework:</p>
+                    <ul>
+                        <li>No Wi-Fi? → Layer 1 (Physical)</li>
+                        <li>Can ping IP but not hostname? → Layer 7 (DNS)</li>
+                        <li>Can't reach other networks? → Layer 3 (Routing)</li>
+                    </ul>
+
+                    <p>Work through the layers systematically to find problems.</p>
 
                     <div class="article-references">
-                        <h4>📚 Related Articles</h4>
+                        <h4>📚 Related</h4>
                         <ul>
-                            <li><a href="#" onclick="showPage('article1'); return false;">Previous: Why I'm Rebuilding My Tech Knowledge</a></li>
-                            <li>Next: Setting Up My Home Lab (Coming Nov 3)</li>
+                            <li><a href="#" onclick="showPage('article1'); return false;">Previous: Why I'm Rebuilding</a></li>
+                            <li><a href="#" onclick="showPage('article3'); return false;">Next: Subnetting Made Easy</a></li>
                         </ul>
                     </div>
 
@@ -788,64 +1535,13 @@
                 </div>
             </div>
 
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Ewura's TechReboot Blog. All rights reserved.</p>
-            <p>Rebuilding tech knowledge, one article at a time.</p>
-        </div>
-    </footer>
-
-    <script>
-        function showPage(pageName) {
-            var pages = document.querySelectorAll('.page-content');
-            for (var i = 0; i < pages.length; i++) {
-                pages[i].classList.add('hidden');
-            }
-            
-            var targetPage = document.getElementById(pageName + '-page');
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-            }
-            
-            var navLinks = document.querySelectorAll('.nav-link');
-            for (var i = 0; i < navLinks.length; i++) {
-                navLinks[i].classList.remove('current-page');
-            }
-            
-            window.scrollTo(0, 0);
-        }
-
-        function filterCategory(category) {
-            showPage('home');
-            
-            setTimeout(function() {
-                var articles = document.querySelectorAll('.article-card');
-                for (var i = 0; i < articles.length; i++) {
-                    var article = articles[i];
-                    var articleCategory = article.getAttribute('data-category');
-                    if (category === 'all' || articleCategory === category) {
-                        article.style.display = 'block';
-                    } else {
-                        article.style.display = 'none';
-                    }
-                }
-                
-                var articlesSection = document.querySelector('.articles');
-                if (articlesSection) {
-                    articlesSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var homeLink = document.querySelector('a[onclick*="home"]');
-            if (homeLink) {
-                homeLink.classList.add('current-page');
-            }
-        });
-    </script>
-</body>
-</html>
+            <!-- ARTICLE 3 -->
+            <div id="article3-page" class="page-content hidden">
+                <div class="article-content">
+                    <a href="#" onclick="showPage('home'); return false;" class="back-link">← Back</a>
+                    
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-tag">Networking</span>
+                            <span>Thursday, November 6, 2025</span>
+                        </div>
